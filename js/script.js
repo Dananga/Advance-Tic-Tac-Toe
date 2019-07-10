@@ -71,14 +71,14 @@ function draw_ico(id, flag_down_ok){
 				document.getElementById("player").innerHTML = "Player2's Turn";
 				document.getElementById(id).value = "cross";
 				a++;
-				//b++;
+				
 		}else if(z == "empty"){
 				document.getElementById(id).value = "circle";
 				document.getElementById(id+".icon").className = "fas fa-circle";
 				document.getElementById(id).style.backgroundColor = "blue";
 				document.getElementById("player").innerHTML = "Player1's Chance";
 				a--;
-				//b++;
+				
 
 		}
 
@@ -89,9 +89,6 @@ function draw_ico(id, flag_down_ok){
 
 
 function check_winner(){
-
-	// var set_1,set_2,set_3,set_4;
-	
 	
 	function check_set(set){
 				out0 = set[0];
@@ -135,85 +132,83 @@ function check_winner(){
 	while(x <= ttl_rows){
 		// console.log("x is " + x);
 
-		//check the L to R (strate)
-		var win_set_1 = [`a_${x}`, `b_${x}`, `c_${x}`, `d_${x}`];
-		var win_set_n2 = [`b_${x}`, `c_${x}`, `d_${x}`, `e_${x}`];
-		var win_set_n3 = [`c_${x}`, `d_${x}`, `e_${x}`, `f_${x}`];
-		var win_set_n4 = [`d_${x}`, `e_${x}`, `f_${x}`, `g_${x}`];
-		var win_set_n5 = [`e_${x}`, `f_${x}`, `g_${x}`, `h_${x}`];
-		var win_set_n6 = [`f_${x}`, `g_${x}`, `h_${x}`, `i_${x}`];
+		//check the L to R (strate) (l2r) 
+		var win_set_l2r1 = [`a_${x}`, `b_${x}`, `c_${x}`, `d_${x}`];
+		var win_set_l2r2 = [`b_${x}`, `c_${x}`, `d_${x}`, `e_${x}`];
+		var win_set_l2r3 = [`c_${x}`, `d_${x}`, `e_${x}`, `f_${x}`];
+		var win_set_l2r4 = [`d_${x}`, `e_${x}`, `f_${x}`, `g_${x}`];
+		var win_set_l2r5 = [`e_${x}`, `f_${x}`, `g_${x}`, `h_${x}`];
+		var win_set_l2r6 = [`f_${x}`, `g_${x}`, `h_${x}`, `i_${x}`];
 		
-		check_set(win_set_1);
-		check_set(win_set_n2);
-		check_set(win_set_n3);
-		check_set(win_set_n4);
-		check_set(win_set_n5);
-		check_set(win_set_n6);
-		// var set_2 = check_set(win_set_2);
-
-		if(ttl_rows>=3 && x <= ttl_rows - 2){
-			//check X (down left to up right)
-			var win_set_3 = [`a_${x}`, `b_${x+1}`, `c_${x+2}`, `d_${x+3}`];
-			var win_set_n13 = [`b_${x}`, `c_${x+1}`, `d_${x+2}`, `e_${x+3}`];
-			var win_set_n23 = [`c_${x}`, `d_${x+1}`, `e_${x+2}`, `f_${x+3}`];
-			var win_set_n33 = [`d_${x}`, `e_${x+1}`, `f_${x+2}`, `g_${x+3}`];
-			var win_set_n43 = [`e_${x}`, `f_${x+1}`, `g_${x+2}`, `h_${x+3}`];
-			var win_set_n53 = [`f_${x}`, `g_${x+1}`, `h_${x+2}`, `i_${x+3}`];
+                //left 2 right (l2r) 
+		check_set(win_set_l2r1);
+		check_set(win_set_l2r2);
+		check_set(win_set_l2r3);
+		check_set(win_set_l2r4);
+		check_set(win_set_l2r5);
+		check_set(win_set_l2r6);
+		
+                
+		if(ttl_rows>=3 && x <= ttl_rows - 2){  //rows > 3, then check cross and horizontal inputs
+			//check X (down left to up right) (dl2ur) 
+			var win_set_dl2ur1 = [`a_${x}`, `b_${x+1}`, `c_${x+2}`, `d_${x+3}`];
+			var win_set_dl2ur2 = [`b_${x}`, `c_${x+1}`, `d_${x+2}`, `e_${x+3}`];
+			var win_set_dl2ur3 = [`c_${x}`, `d_${x+1}`, `e_${x+2}`, `f_${x+3}`];
+			var win_set_dl2ur4 = [`d_${x}`, `e_${x+1}`, `f_${x+2}`, `g_${x+3}`];
+			var win_set_dl2ur5 = [`e_${x}`, `f_${x+1}`, `g_${x+2}`, `h_${x+3}`];
+			var win_set_dl2ur6 = [`f_${x}`, `g_${x+1}`, `h_${x+2}`, `i_${x+3}`];
 			
-			//check X (up left to down right)
-			var win_set_4 = [`a_${x+3}`, `b_${x+2}`, `c_${x+1}`, `d_${x}`];
-			var win_set_n14 = [`b_${x+3}`, `c_${x+2}`, `d_${x+1}`, `e_${x}`];
-			var win_set_n24 = [`c_${x+3}`, `d_${x+2}`, `e_${x+1}`, `f_${x}`];
-			var win_set_n34 = [`d_${x+3}`, `e_${x+2}`, `f_${x+1}`, `g_${x}`];
-			var win_set_n44 = [`e_${x+3}`, `f_${x+2}`, `g_${x+1}`, `h_${x}`];
-			var win_set_n54 = [`f_${x+3}`, `g_${x+2}`, `h_${x+1}`, `i_${x}`];
+			//check X (up left to down right) (ul2dr) 
+			var win_set_ul2dr1 = [`a_${x+3}`, `b_${x+2}`, `c_${x+1}`, `d_${x}`];
+			var win_set_ul2dr2 = [`b_${x+3}`, `c_${x+2}`, `d_${x+1}`, `e_${x}`];
+			var win_set_ul2dr3 = [`c_${x+3}`, `d_${x+2}`, `e_${x+1}`, `f_${x}`];
+			var win_set_ul2dr4 = [`d_${x+3}`, `e_${x+2}`, `f_${x+1}`, `g_${x}`];
+			var win_set_ul2dr5 = [`e_${x+3}`, `f_${x+2}`, `g_${x+1}`, `h_${x}`];
+			var win_set_ul2dr6 = [`f_${x+3}`, `g_${x+2}`, `h_${x+1}`, `i_${x}`];
 			
-			// check up and down
-			var win_set_5 = [`a_${x}`, `a_${x+1}`, `a_${x+2}`, `a_${x+3}`];
-			var win_set_6 = [`b_${x}`, `b_${x+1}`, `b_${x+2}`, `b_${x+3}`];
-			var win_set_7 = [`c_${x}`, `c_${x+1}`, `c_${x+2}`, `c_${x+3}`];
-			var win_set_n17 = [`d_${x}`, `d_${x+1}`, `d_${x+2}`, `d_${x+3}`];
-			var win_set_n27 = [`e_${x}`, `e_${x+1}`, `e_${x+2}`, `e_${x+3}`];
-			var win_set_n37 = [`f_${x}`, `f_${x+1}`, `f_${x+2}`, `f_${x+3}`];
-			var win_set_n47 = [`g_${x}`, `g_${x+1}`, `g_${x+2}`, `g_${x+3}`];
-			var win_set_n57 = [`h_${x}`, `h_${x+1}`, `h_${x+2}`, `h_${x+3}`];
-			var win_set_n67 = [`i_${x}`, `i_${x+1}`, `i_${x+2}`, `i_${x+3}`];
+			// check up and down (d2u) 
+			var win_set_d2u1 = [`a_${x}`, `a_${x+1}`, `a_${x+2}`, `a_${x+3}`];
+			var win_set_d2u2 = [`b_${x}`, `b_${x+1}`, `b_${x+2}`, `b_${x+3}`];
+			var win_set_d2u3 = [`c_${x}`, `c_${x+1}`, `c_${x+2}`, `c_${x+3}`];
+			var win_set_d2u4 = [`d_${x}`, `d_${x+1}`, `d_${x+2}`, `d_${x+3}`];
+			var win_set_d2u5 = [`e_${x}`, `e_${x+1}`, `e_${x+2}`, `e_${x+3}`];
+			var win_set_d2u6 = [`f_${x}`, `f_${x+1}`, `f_${x+2}`, `f_${x+3}`];
+			var win_set_d2u7 = [`g_${x}`, `g_${x+1}`, `g_${x+2}`, `g_${x+3}`];
+			var win_set_d2u8 = [`h_${x}`, `h_${x+1}`, `h_${x+2}`, `h_${x+3}`];
+			var win_set_d2u9 = [`i_${x}`, `i_${x+1}`, `i_${x+2}`, `i_${x+3}`];
 
-			check_set(win_set_4);
-			check_set(win_set_3);
-			check_set(win_set_5);
-			check_set(win_set_6);
-			check_set(win_set_7);
+                        //calling
 
-			//
-			check_set(win_set_n13);
-			check_set(win_set_n23);
-			check_set(win_set_n33);
-			check_set(win_set_n43);
-			check_set(win_set_n53);
+			//down left 2 up right (dl2ur)
+			check_set(win_set_dl2ur1);
+			check_set(win_set_dl2ur2);
+			check_set(win_set_dl2ur3);
+			check_set(win_set_dl2ur4);
+			check_set(win_set_dl2ur5);
+                        check_set(win_set_dl2ur6);
 
-			//
-			check_set(win_set_n17);
-			check_set(win_set_n27);
-			check_set(win_set_n37);
-			check_set(win_set_n47);
-			check_set(win_set_n57);
-			check_set(win_set_n67);
 
-			//
-			check_set(win_set_n14);
-			check_set(win_set_n24);
-			check_set(win_set_n34);
-			check_set(win_set_n44);
-			check_set(win_set_n54);
+			//down 2 up or up 2 down (d2u) 
+			check_set(win_set_d2u1);
+			check_set(win_set_d2u2);
+			check_set(win_set_d2u3);
+			check_set(win_set_d2u4);
+			check_set(win_set_d2u5);
+			check_set(win_set_d2u6);
+                        check_set(win_set_d2u7);
+			check_set(win_set_d2u8);
+			check_set(win_set_d2u9);
+
+			//up left 2 down right (ul2dr) 
+			check_set(win_set_ul2dr1);
+			check_set(win_set_ul2dr2);
+			check_set(win_set_ul2dr3);
+			check_set(win_set_ul2dr4);
+			check_set(win_set_ul2dr5);
+                        check_set(win_set_ul2dr6);
 		}
-		
-		// console.log("win_set is " + win_set_1);
 		x=x+1;
-		
-		
 	}
-	// console.log("x is " + x + "  row is :" + row);
 	delete x;
 
 	
