@@ -1,4 +1,4 @@
-# atcube
+# Advance Tic Tac Toe
 
 
 A Game like tik-tok-toe
