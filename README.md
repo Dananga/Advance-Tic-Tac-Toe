@@ -1,8 +1,8 @@
-# Advance Tic Tac Toe
+# Connect Four
 
 
-A Game like tik-tok-toe
-but extended version. 
+A Game like tik-tac-toe
+but more complex and more funny than tik-tac-toe. 
 * 9 columns 
 * Infinite rows
 * 4 boxes to win (cross ,vertical ,horizontal)
