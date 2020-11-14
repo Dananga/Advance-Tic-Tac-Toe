@@ -76,7 +76,7 @@ function draw_ico(id, flag_down_ok){
 				document.getElementById(id).value = "circle";
 				document.getElementById(id+".icon").className = "fas fa-circle";
 				document.getElementById(id).style.backgroundColor = "blue";
-				document.getElementById("player").innerHTML = "Player1's Chance";
+				document.getElementById("player").innerHTML = "Player1's Turn";
 				a--;
 				
 
